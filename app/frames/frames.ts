@@ -5,12 +5,19 @@ export const frames: any = createFrames({
     basePath: "/frames",
     middleware: [
         farcasterHubContext({
-            hubHttpUrl: "https://hub-api.neynar.com",
-            hubRequestOptions: {
-                headers: {
-                    api_key: process.env.NEYNAR_API_KEY || "",
-                },
-            },
+            ...(process.env.NODE_ENV === "production"
+                ? {
+                      hubHttpUrl: "https://hubs.airstack.xyz",
+                      hubRequestOptions: {
+                          headers: {
+                              "x-airstack-hubs": process.env
+                                  .AIRSTACK_API_KEY as string,
+                          },
+                      },
+                  }
+                : {
+                      hubHttpUrl: "http://localhost:3010/hub",
+                  }),
         }),
     ],
 });
