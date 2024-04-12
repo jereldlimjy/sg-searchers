@@ -1,4 +1,7 @@
 import { fetchMetadata } from "frames.js/next";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 export async function generateMetadata() {
     return {
