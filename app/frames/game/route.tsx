@@ -4,9 +4,7 @@ import { Button } from "frames.js/next";
 
 const getPuzzle = async () => {
     try {
-        const response = await fetch(
-            "https://sg-searchers.vercel.app/api/puzzle"
-        );
+        const response = await fetch("http://localhost:3000/api/puzzle");
         if (!response.ok) {
             throw new Error("Network response was not ok");
         }

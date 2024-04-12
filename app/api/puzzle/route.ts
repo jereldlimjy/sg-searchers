@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 const wordSearch = require("@blex41/word-search");
-// const wordsearch = require("wordsearch");
 
 export async function GET(
     req: NextRequest,
