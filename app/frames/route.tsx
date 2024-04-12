@@ -22,7 +22,7 @@ const handleRequest = frames(async (ctx: any) => {
             </div>
         ),
         buttons: [
-            <Button action="post" target="/game">
+            <Button action="post" target="/frames/game">
                 Play Game!
             </Button>,
             // TO CHANGE
