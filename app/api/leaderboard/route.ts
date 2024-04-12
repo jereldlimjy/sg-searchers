@@ -9,7 +9,10 @@ export async function GET(
     req: NextRequest,
     res: NextResponse<{ message: string }>
 ) {
-    const provider = new ethers.JsonRpcProvider(process.env.BASE_RPC_URL ?? "");
+    const provider = new ethers.JsonRpcProvider(
+        "https://base-mainnet.g.alchemy.com/v2/L1LmC3DEmPXx_Bj0gHEN_e6ogJpayQ7D" ??
+            ""
+    );
 
     const lionCitySearchContract = new ethers.Contract(
         LION_CITY_SEARCH_CONTRACT_ADDRESS,
