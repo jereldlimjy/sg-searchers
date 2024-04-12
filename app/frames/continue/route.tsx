@@ -36,33 +36,33 @@ export const POST = frames(async (ctx: any) => {
     };
 
     // if input text in word list, mark as found
-
-    console.log(ws);
     if (inputText in ws.words) {
         ws.words[inputText].found = true;
     }
 
     return {
         image: (
-            <div tw="flex">
-                <div tw="flex flex-wrap" style={{ width: "500px" }}>
-                    {ws.grid.map((row: string[], y: number) =>
-                        row.map((cell, x) => (
-                            <div
-                                key={`${x}-${y}`}
-                                tw={`flex justify-center items-center ${getCellColor(
-                                    x,
-                                    y
-                                )}`}
-                                style={{
-                                    width: "50px",
-                                    height: "50px",
-                                }}
-                            >
-                                {cell}
-                            </div>
-                        ))
-                    )}
+            <div tw="flex w-full h-full bg-red-400 justify-center items-center">
+                <div tw="flex bg-white rounded-lg p-8">
+                    <div tw="flex flex-wrap" style={{ width: "500px" }}>
+                        {ws.grid.map((row: string[], y: number) =>
+                            row.map((cell, x) => (
+                                <div
+                                    key={`${x}-${y}`}
+                                    tw={`flex justify-center items-center ${getCellColor(
+                                        x,
+                                        y
+                                    )}`}
+                                    style={{
+                                        width: "50px",
+                                        height: "50px",
+                                    }}
+                                >
+                                    {cell}
+                                </div>
+                            ))
+                        )}
+                    </div>
                 </div>
             </div>
         ),

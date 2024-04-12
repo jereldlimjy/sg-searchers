@@ -18,6 +18,8 @@ const getPuzzle = async () => {
 
 export const POST = frames(async (ctx: any) => {
     const ws = await getPuzzle();
+    const { username } = ctx.message.requesterUserData;
+    const profileImage = ctx.message.requesterUserData?.profileImage ?? "";
 
     // convert words array into map
     const wordsMap: any = {};
@@ -34,16 +36,32 @@ export const POST = frames(async (ctx: any) => {
 
     return {
         image: (
-            <div tw="flex">
-                <div tw="flex flex-wrap" style={{ width: "500px" }}>
-                    {ws.data.grid.flat().map((cell: string) => (
-                        <div
-                            tw="flex justify-center items-center"
-                            style={{ width: "50px", height: "50px" }}
-                        >
-                            {cell}
+            <div tw="flex h-full w-full bg-red-400 justify-center items-center">
+                <div tw="flex w-1/3 justify-center items-start">
+                    <div tw="flex flex-col">
+                        <img src={profileImage} height="120px" width="120px" />
+                        <span tw="mt-1 text-4xl">{username}</span>
+                    </div>
+                </div>
+                <div tw="flex w-2/3">
+                    <div tw="flex bg-white rounded-lg p-8">
+                        <div tw="flex flex-wrap" style={{ width: "500px" }}>
+                            {ws.data.grid
+                                .flat()
+                                .map((cell: string, index: number) => (
+                                    <div
+                                        key={index}
+                                        tw="flex justify-center items-center"
+                                        style={{
+                                            width: "50px",
+                                            height: "50px",
+                                        }}
+                                    >
+                                        {cell}
+                                    </div>
+                                ))}
                         </div>
-                    ))}
+                    </div>
                 </div>
             </div>
         ),
