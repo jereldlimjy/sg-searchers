@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { frames } from "../frames";
 import { Button } from "frames.js/next";
 
