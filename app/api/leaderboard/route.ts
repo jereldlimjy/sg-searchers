@@ -29,5 +29,5 @@ export async function GET(
         scores.push({ fid: Number(fid), score: Number(score) });
     }
 
-    return NextResponse.json(scores.sort((a, b) => a.score - b.score));
+    return NextResponse.json(scores.sort((a, b) => b.score - a.score));
 }
