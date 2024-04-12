@@ -26,6 +26,7 @@ export const POST = frames(async (ctx: any) => {
                 </div>
             ),
             buttons: [
+                // TO CHANGE
                 <Button action="link" target="http://localhost:3000">
                     View Leaderboard
                 </Button>,

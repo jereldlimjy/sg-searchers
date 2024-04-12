@@ -25,6 +25,7 @@ const handleRequest = frames(async (ctx: any) => {
             <Button action="post" target="/game">
                 Play Game!
             </Button>,
+            // TO CHANGE
             <Button action="link" target="/">
                 View Leaderboard
             </Button>,
