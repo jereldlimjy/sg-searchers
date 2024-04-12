@@ -17,7 +17,9 @@ export async function generateMetadata() {
 const getLeaderboard = async () => {
     try {
         const response = await fetch(
-            "https://sg-searchers.vercel.app/api/leaderboard",
+            process.env.NODE_ENV === "production"
+                ? "https://sg-searchers.vercel.app/api/leaderboard"
+                : "http://localhost:3000/api/leaderboard",
             { cache: "no-store" }
         );
         if (!response.ok) {
@@ -38,7 +40,7 @@ export default async function Page() {
         <div className="flex flex-col items-center h-full w-full justify-center bg-red-400">
             <img
                 src={"/merlion.png"}
-                alt="Merlion"
+                alt="merlion"
                 className="mt-5 w-1/2 sm:w-1/4"
             />{" "}
             <div className="text-center text-black">

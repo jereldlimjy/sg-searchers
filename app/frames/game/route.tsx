@@ -5,7 +5,9 @@ import { Button } from "frames.js/next";
 const getPuzzle = async () => {
     try {
         const response = await fetch(
-            "https://sg-searchers.vercel.app/api/puzzle"
+            process.env.NODE_ENV === "production"
+                ? "https://sg-searchers.vercel.app/api/puzzle"
+                : "http://localhost:3000/api/puzzle"
         );
         if (!response.ok) {
             throw new Error("Network response was not ok");

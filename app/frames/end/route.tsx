@@ -27,8 +27,14 @@ export const POST = frames(async (ctx: any) => {
                 </div>
             ),
             buttons: [
-                // TO CHANGE
-                <Button action="link" target="https://sg-searchers.vercel.app/">
+                <Button
+                    action="link"
+                    target={
+                        process.env.NODE_ENV === "production"
+                            ? "https://sg-searchers.vercel.app"
+                            : "http://localhost:3000"
+                    }
+                >
                     View Leaderboard
                 </Button>,
                 <Button action="post" target="/game">
