@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ethers } from "ethers";
 import lionCitySearchAbi from "../../assets/lionCitySearchAbi.json";
-import * as dotenv from "dotenv";
-
-dotenv.config();
 
 const LION_CITY_SEARCH_CONTRACT_ADDRESS =
     "0x6144E026C9FD451876676a5925EeD220dbC240e0";
