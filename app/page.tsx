@@ -16,8 +16,30 @@ export async function generateMetadata() {
 
 export default function Page() {
     return (
-        <div className="flex h-full w-full justify-center">
-            <h1 className="mt-20">Welcome to SG searchers {":)"}</h1>
+        <div className="flex flex-col items-center h-full w-full justify-center bg-red-400">
+            <img src={"/merlion.png"} alt="Merlion" className="mt-5 w-1/2 sm:w-1/4" /> {/* Resize the image */}
+            <div className="text-center text-black">
+                <p className="mt-5 text-xl font-bold">Leaderboard</p> {/* Make the text bold with font-bold */}
+            </div>
+            <table className="border-collapse border border-black mt-5 bg-white text-black text-lg"> {/* Adjust font size with text-lg */}
+                <thead>
+                    <tr className="bg-gray-200"> {/* Add custom class for the row containing headers */}
+                        <th className="border border-black px-4 py-2">Rank</th>
+                        <th className="border border-black px-4 py-2">User</th>
+                        <th className="border border-black px-4 py-2">Score</th>
+                        <th className="border border-black px-4 py-2">Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td className="border border-black px-4 py-2">1</td>
+                        <td className="border border-black px-4 py-2">Timothy</td>
+                        <td className="border border-black px-4 py-2">10</td>
+                        <td className="border border-black px-4 py-2">2 minutes</td>
+                    </tr>
+                    {/* Add other rows here */}
+                </tbody>
+            </table>
         </div>
     );
 }
