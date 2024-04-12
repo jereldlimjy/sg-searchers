@@ -27,7 +27,6 @@ export default function Page() {
                         <th className="border border-black px-4 py-2">Rank</th>
                         <th className="border border-black px-4 py-2">User</th>
                         <th className="border border-black px-4 py-2">Score</th>
-                        <th className="border border-black px-4 py-2">Time</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,7 +34,6 @@ export default function Page() {
                         <td className="border border-black px-4 py-2">1</td>
                         <td className="border border-black px-4 py-2">Timothy</td>
                         <td className="border border-black px-4 py-2">10</td>
-                        <td className="border border-black px-4 py-2">2 minutes</td>
                     </tr>
                     {/* Add other rows here */}
                 </tbody>
