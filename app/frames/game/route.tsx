@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { frames } from "../frames";
 import { Button } from "frames.js/next";
 
@@ -16,39 +17,47 @@ const getPuzzle = async () => {
 };
 
 export const POST = frames(async (ctx: any) => {
-    const puzzle = await getPuzzle();
+    const ws = await getPuzzle();
 
-    console.log(puzzle);
+    // convert words array into map
+    const wordsMap: any = {};
+
+    for (const wordObj of ws.data.words) {
+        wordsMap[wordObj.word] = {
+            word: wordObj.word,
+            path: wordObj.path,
+            found: false,
+        };
+    }
+
+    ws.data.words = wordsMap;
 
     return {
         image: (
             <div tw="flex">
-                <span>Gameplay page</span>
-
-                <div tw="flex p-4 max-w-sm mx-auto bg-white rounded-xl shadow-md">
-                    <div tw="flex grid grid-cols-5 gap-1">
-                        {puzzle.map((row: string[], rowIndex: number) =>
-                            row.map((cell: string, colIndex: number) => (
-                                <div
-                                    key={`${rowIndex}-${colIndex}`}
-                                    tw="flex w-10 h-10 flex justify-center items-center bg-gray-200 text-lg font-semibold rounded"
-                                >
-                                    {cell}
-                                </div>
-                            ))
-                        )}
-                    </div>
+                <div tw="flex flex-wrap" style={{ width: "500px" }}>
+                    {ws.data.grid.flat().map((cell: string) => (
+                        <div
+                            tw="flex justify-center items-center"
+                            style={{ width: "50px", height: "50px" }}
+                        >
+                            {cell}
+                        </div>
+                    ))}
                 </div>
             </div>
         ),
         buttons: [
-            <Button action="post" target="/game">
+            <Button action="post" target="/continue">
                 Submit
             </Button>,
-            <Button action="post" target="/submit">
+            <Button action="post" target="/end">
                 Give up liao
             </Button>,
         ],
-        state: {},
+        state: {
+            ...ws.data,
+        },
+        textInput: " Enter word:",
     };
 });

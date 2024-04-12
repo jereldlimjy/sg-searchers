@@ -1,11 +1,34 @@
 import { NextRequest, NextResponse } from "next/server";
-const wordsearch = require("wordsearch");
+const wordSearch = require("@blex41/word-search");
+// const wordsearch = require("wordsearch");
 
 export async function GET(
     req: NextRequest,
     res: NextResponse<{ message: string }>
 ) {
-    const search = wordsearch(["jereld", "tim"], 10, 10);
+    const options = {
+        cols: 10,
+        rows: 10,
+        disabledDirections: ["N", "W", "NW", "SW"],
+        dictionary: [
+            "kiasu",
+            "blur",
+            "atas",
+            "shiok",
+            "lepak",
+            "sabo",
+            "hawker",
+            "aiyah",
+            "ahbeng",
+            "sotong",
+        ],
+        maxWords: 20,
+        backwardsProbability: 0.3,
+        upperCase: false,
+        diacritics: true,
+    };
 
-    return NextResponse.json(search);
+    const ws = new wordSearch(options);
+
+    return NextResponse.json(ws);
 }
