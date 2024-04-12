@@ -1,5 +1,8 @@
 import { createFrames } from "frames.js/next";
 import { farcasterHubContext } from "frames.js/middleware";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 export const frames: any = createFrames({
     basePath: "/frames",
@@ -11,7 +14,7 @@ export const frames: any = createFrames({
                       hubRequestOptions: {
                           headers: {
                               "x-airstack-hubs": process.env
-                                  .NEXT_AIRSTACK_API_KEY as string,
+                                  .AIRSTACK_API_KEY as string,
                           },
                       },
                   }
