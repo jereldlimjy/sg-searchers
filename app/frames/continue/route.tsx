@@ -19,6 +19,8 @@ const colourMapping: any = {
 
 export const POST = frames(async (ctx: any) => {
     const { inputText, state } = ctx.message;
+    const { username } = ctx.message.requesterUserData;
+    const profileImage = ctx.message.requesterUserData?.profileImage ?? "";
 
     const ws = JSON.parse(state);
 
@@ -43,25 +45,34 @@ export const POST = frames(async (ctx: any) => {
     return {
         image: (
             <div tw="flex w-full h-full bg-red-400 justify-center items-center">
-                <div tw="flex bg-white rounded-lg p-8">
-                    <div tw="flex flex-wrap" style={{ width: "500px" }}>
-                        {ws.grid.map((row: string[], y: number) =>
-                            row.map((cell, x) => (
-                                <div
-                                    key={`${x}-${y}`}
-                                    tw={`flex justify-center items-center ${getCellColor(
-                                        x,
-                                        y
-                                    )}`}
-                                    style={{
-                                        width: "50px",
-                                        height: "50px",
-                                    }}
-                                >
-                                    {cell}
-                                </div>
-                            ))
-                        )}
+                <div tw="flex flex-col w-1/3 h-full justify-center items-center">
+                    <div tw="flex flex-col items-center">
+                        <img src={profileImage} height="120px" width="120px" />
+                        <span tw="mt-1 text-3xl text-white">{username}</span>
+                    </div>
+                </div>
+
+                <div tw="flex w-2/3">
+                    <div tw="flex bg-white rounded-lg p-8">
+                        <div tw="flex flex-wrap" style={{ width: "500px" }}>
+                            {ws.grid.map((row: string[], y: number) =>
+                                row.map((cell, x) => (
+                                    <div
+                                        key={`${x}-${y}`}
+                                        tw={`flex justify-center items-center ${getCellColor(
+                                            x,
+                                            y
+                                        )}`}
+                                        style={{
+                                            width: "50px",
+                                            height: "50px",
+                                        }}
+                                    >
+                                        {cell}
+                                    </div>
+                                ))
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
