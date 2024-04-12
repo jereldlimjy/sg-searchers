@@ -12,9 +12,7 @@ export async function GET(
     req: NextRequest,
     res: NextResponse<{ message: string }>
 ) {
-    const provider = new ethers.JsonRpcProvider(
-        process.env.NEXT_BASE_RPC_URL ?? ""
-    );
+    const provider = new ethers.JsonRpcProvider(process.env.BASE_RPC_URL ?? "");
 
     const lionCitySearchContract = new ethers.Contract(
         LION_CITY_SEARCH_CONTRACT_ADDRESS,
