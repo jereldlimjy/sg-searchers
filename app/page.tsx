@@ -9,8 +9,8 @@ export async function generateMetadata() {
         other: await fetchMetadata(
             new URL(
                 "/frames",
-                process.env.VERCEL_URL
-                    ? "https://sg-searchers.vercel.app/"
+                process.env.NODE_ENV === "production"
+                    ? "https://sg-searchers.vercel.app"
                     : "http://localhost:3000"
             )
         ),
