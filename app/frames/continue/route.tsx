@@ -1,21 +1,7 @@
 /* eslint-disable react/jsx-key */
 import { frames } from "../frames";
 import { Button } from "frames.js/next";
-
-const colourMapping: any = {
-    tim: "bg-green-200",
-    jereld: "bg-blue-200",
-    kiasu: "bg-red-200",
-    blur: "bg-yellow-200",
-    atas: "bg-purple-200",
-    shiok: "bg-pink-200",
-    lepak: "bg-indigo-200",
-    sabo: "bg-teal-200",
-    hawker: "bg-orange-200",
-    aiyah: "bg-lime-200",
-    ahbeng: "bg-amber-200",
-    sotong: "bg-cyan-200",
-};
+import { colourMapping } from "../../constants";
 
 export const POST = frames(async (ctx: any) => {
     const { inputText, state } = ctx.message;

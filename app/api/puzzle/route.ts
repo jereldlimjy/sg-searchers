@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
+import { dictionary } from "../../constants";
+
 const wordSearch = require("@blex41/word-search");
 
 export async function GET(
@@ -8,20 +10,9 @@ export async function GET(
     const options = {
         cols: 10,
         rows: 10,
-        disabledDirections: ["N", "W", "NW", "SW"],
-        dictionary: [
-            "kiasu",
-            "blur",
-            "atas",
-            "shiok",
-            "lepak",
-            "sabo",
-            "hawker",
-            "aiyah",
-            "ahbeng",
-            "sotong",
-        ],
-        maxWords: 20,
+        disabledDirections: ["NW", "SW"],
+        dictionary,
+        maxWords: 10,
         backwardsProbability: 0.3,
         upperCase: false,
         diacritics: true,

@@ -71,17 +71,22 @@ export const POST = frames(async (ctx: any) => {
                         </div>
                     </div>
 
-                    <span tw="text-gray-700 mt-10 text-7xl">
+                    <span tw="text-gray-700 mt-10 mb-5 text-7xl">
                         Score: {foundWords.length}
                     </span>
-                    <span tw="mt-4 text-white">Words found:</span>
-                    {foundWords.map((wordObj, index) => {
-                        return (
-                            <div key={index} tw="flex text-white text-3xl mt-2">
-                                {index + 1}. {wordObj.word}
-                            </div>
-                        );
-                    })}
+                    <span tw="mt-4 text-white mt-4">Words found:</span>
+                    <div tw="flex flex-wrap w-2/3">
+                        {foundWords.map((wordObj, index) => {
+                            return (
+                                <div
+                                    key={index}
+                                    tw="flex text-white text-3xl mt-2 p-2 w-1/3 justify-center"
+                                >
+                                    {index + 1}. {wordObj.word}
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
             ),
             buttons: [

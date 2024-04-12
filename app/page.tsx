@@ -2,7 +2,7 @@ import { fetchMetadata } from "frames.js/next";
 
 export async function generateMetadata() {
     return {
-        title: "SG Searchers",
+        title: "Lion City Search",
         other: await fetchMetadata(
             new URL(
                 "/frames",
