@@ -47,7 +47,12 @@ export const POST = frames(async (ctx: any) => {
             <div tw="flex w-full h-full bg-red-400 justify-center items-center">
                 <div tw="flex flex-col w-1/3 h-full justify-center items-center">
                     <div tw="flex flex-col items-center">
-                        <img src={profileImage} height="120px" width="120px" />
+                        <img
+                            src={profileImage}
+                            height="120px"
+                            width="120px"
+                            alt="profile image"
+                        />
                         <span tw="mt-1 text-3xl text-white">{username}</span>
                     </div>
                 </div>

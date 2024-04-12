@@ -54,7 +54,7 @@ export default async function Page() {
                 <tbody>
                     {leaderboard.map((obj: any, index: number) => {
                         return (
-                            <tr>
+                            <tr key={index}>
                                 <td className="border border-black px-4 py-2">
                                     {index + 1}
                                 </td>
