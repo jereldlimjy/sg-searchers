@@ -26,7 +26,7 @@ const handleRequest = frames(async (ctx: any) => {
                 Play Game!
             </Button>,
             // TO CHANGE
-            <Button action="link" target="/">
+            <Button action="link" target="https://sg-searchers.vercel.app">
                 View Leaderboard
             </Button>,
         ],
