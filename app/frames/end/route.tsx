@@ -34,6 +34,12 @@ export const POST = frames(async (ctx: any) => {
                 <Button action="post" target="/game">
                     Play Again!
                 </Button>,
+                <Button
+                    action="link"
+                    target="https://thehoneycombers.com/singapore/singlish-101/"
+                >
+                    Learn More
+                </Button>,
             ],
         };
     } else {
