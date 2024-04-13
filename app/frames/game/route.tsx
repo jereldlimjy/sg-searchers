@@ -6,8 +6,10 @@ const getPuzzle = async () => {
     try {
         const response = await fetch(
             process.env.NODE_ENV === "production"
-                ? "https://sg-searchers.vercel.app/api/puzzle"
-                : "http://localhost:3000/api/puzzle",
+                ? "https://sg-searchers.vercel.app/api/leaderboard"
+                : process.env.NODE_ENV === "development"
+                ? "https://sg-searchers-dev.vercel.app/api/leaderboard"
+                : "http://localhost:3000/api/leaderboard",
             { cache: "no-cache" }
         );
         if (!response.ok) {
@@ -23,8 +25,6 @@ const getPuzzle = async () => {
 
 export const POST = frames(async (ctx: any) => {
     const ws = await getPuzzle();
-
-    console.log(ws);
     const { username } = ctx.message.requesterUserData;
     const profileImage = ctx.message.requesterUserData?.profileImage ?? "";
 

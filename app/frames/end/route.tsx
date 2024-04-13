@@ -32,6 +32,8 @@ export const POST = frames(async (ctx: any) => {
                     target={
                         process.env.NODE_ENV === "production"
                             ? "https://sg-searchers.vercel.app"
+                            : process.env.NODE_ENV === "development"
+                            ? "https://sg-searchers-dev.vercel.app"
                             : "http://localhost:3000"
                     }
                 >

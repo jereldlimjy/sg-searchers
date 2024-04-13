@@ -8,6 +8,8 @@ export async function generateMetadata() {
                 "/frames",
                 process.env.NODE_ENV === "production"
                     ? "https://sg-searchers.vercel.app"
+                    : process.env.NODE_ENV === "development"
+                    ? "https://sg-searchers-dev.vercel.app"
                     : "http://localhost:3000"
             )
         ),
@@ -19,6 +21,8 @@ const getLeaderboard = async () => {
         const response = await fetch(
             process.env.NODE_ENV === "production"
                 ? "https://sg-searchers.vercel.app/api/leaderboard"
+                : process.env.NODE_ENV === "development"
+                ? "https://sg-searchers-dev.vercel.app/api/leaderboard"
                 : "http://localhost:3000/api/leaderboard",
             { cache: "no-store" }
         );
