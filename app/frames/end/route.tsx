@@ -75,7 +75,11 @@ export const POST = frames(async (ctx: any) => {
                         Score: {foundWords.length}
                     </span>
                     <span tw="mt-4 text-white mt-4">Words found:</span>
-                    <div tw="flex flex-wrap w-2/3">
+                    <div
+                        tw={`flex flex-wrap w-2/3 ${
+                            foundWords.length <= 2 && "justify-center"
+                        }`}
+                    >
                         {foundWords.map((wordObj, index) => {
                             return (
                                 <div

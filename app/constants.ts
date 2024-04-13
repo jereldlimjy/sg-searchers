@@ -28,6 +28,7 @@ export const dictionary = [
     "swee",
     "siao",
     "makan",
+    "sian",
 ];
 
 export const colourMapping: any = {
@@ -60,4 +61,5 @@ export const colourMapping: any = {
     swee: "bg-lime-400",
     siao: "bg-orange-400",
     makan: "bg-pink-400",
+    sian: "bg-blue-300",
 };
