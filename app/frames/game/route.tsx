@@ -23,6 +23,8 @@ const getPuzzle = async () => {
 
 export const POST = frames(async (ctx: any) => {
     const ws = await getPuzzle();
+
+    console.log(ws);
     const { username } = ctx.message.requesterUserData;
     const profileImage = ctx.message.requesterUserData?.profileImage ?? "";
 
